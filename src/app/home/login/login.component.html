@@ -1,4 +1,4 @@
-<div class="login-form" data-sidebar>
+<div [class.login-form]="!canCreateAccount" [class.signup-form]="canCreateAccount" data-sidebar>
     <section class="container-fluid">
         <section class="row justify-content-center">
             <section class="col-12 col-sm-8 col-md-4">

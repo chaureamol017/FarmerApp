@@ -31,7 +31,11 @@ export class ProductComponent implements OnInit {
       this.productSaveform = new FormGroup({
         productName: new FormControl(selectedData.productName, [Validators.required]),
         description: new FormControl(selectedData.description),
+        category: new FormControl(selectedData.categoryid),
         grade: new FormControl(selectedData.gradeid),
+        city: new FormControl(selectedData.city),
+        availableOn: new FormControl(selectedData.availableOn),
+        sellingRate: new FormControl(selectedData.sellingRate),
       });
 
     } else {
@@ -40,7 +44,11 @@ export class ProductComponent implements OnInit {
         // productName: new FormControl('', [Validators.required, Validators.minLength(5)]),
         productName: new FormControl('', [Validators.required]),
         description: new FormControl(),
+        category: new FormControl(),
         grade: new FormControl(),
+        city: new FormControl(),
+        availableOn: new FormControl(),
+        sellingRate: new FormControl(),
       });
     }
 
@@ -78,8 +86,6 @@ export class ProductComponent implements OnInit {
   get ProductGrade() {
     return this.productSaveform.get('grade');
   }
-
-
 
   closeDialog() {
     this.dialogRef.close();

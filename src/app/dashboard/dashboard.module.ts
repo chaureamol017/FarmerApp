@@ -11,6 +11,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ActionsModule } from '../actions/actions.module';
 import { MyprofileComponent } from './components/myprofile/myprofile.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { MyprofileComponent } from './components/myprofile/myprofile.component';
     SidebarComponent,
     DashboardComponent,
     MyprofileComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     CommonModule,

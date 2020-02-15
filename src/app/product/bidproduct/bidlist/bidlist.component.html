@@ -1,3 +1,12 @@
+<mat-toolbar>
+  <h1 mat-dialog-title>{{formTitle}} : {{selectedProductName}}</h1>
+  <span class="fill-remaining-space"></span>
+  <button class="btn-dialog-close" mat-stroked-button (click)="closeDialog()" tabindex="-1">
+      <mat-icon>clear</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-dialog-content class="mat-typography">
 
 <div class="mat-elevation-z8">
     <mat-table [dataSource]="listData"  matSort>
@@ -43,3 +52,4 @@
     </mat-table>
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
   </div>
+</mat-dialog-content>

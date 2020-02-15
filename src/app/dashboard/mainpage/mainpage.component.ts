@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserDetails } from 'src/app/classes/user-details';
 
 @Component({
   selector: 'app-mainpage',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainpageComponent implements OnInit {
   sideBarOpen = true;
-  sideBarIndex = 1;
-
-  constructor() { }
+  sideBarIndex = 0;
+  loggedInUser: UserDetails;
+  constructor() {
+    
+    this.loggedInUser = new UserDetails();
+    this.loggedInUser.name = "Sachin";
+    this.loggedInUser.emailId = "Sachn@mailinator.com";
+    this.loggedInUser.role = "Buyer";
+    // this.loggedInUser.role = "Farmer";
+  }
 
   ngOnInit() {
   }
@@ -19,7 +27,6 @@ export class MainpageComponent implements OnInit {
   }
 
   switchSideBarContent($event) {
-  // switchSideBarContent() {
     this.sideBarIndex = $event;
   }
 

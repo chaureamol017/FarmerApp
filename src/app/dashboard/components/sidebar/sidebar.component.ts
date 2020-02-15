@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { UserDetails } from 'src/app/classes/user-details';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,13 +8,17 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
   @Output() switchSideBarForMe: EventEmitter<any> = new EventEmitter();
+  @Input('loggedInUser') loggedInUser: UserDetails = new UserDetails();
+
   activeLink: any = 0; 
-  loggedInUser: any;
+  loggedInUserName: any;
   loggedInUserEmail: any;
   constructor() { }
 
   ngOnInit() {
-    this.loggedInUser = "Sachin";
+    this.activeLink = 0; 
+    // this.loggedInUserName = "Sachin";
+    this.loggedInUserName = this.loggedInUser.name;
     this.loggedInUserEmail = "sachin@yopmail.com";
   }
   

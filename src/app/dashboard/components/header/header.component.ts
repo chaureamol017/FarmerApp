@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MatDialogConfig, MatDialog } from '@angular/material';
 import { MyprofileComponent } from '../myprofile/myprofile.component';
+import { ChangePasswordComponent } from '../change-password/change-password.component';
 
 @Component({
   selector: 'app-header',
@@ -32,18 +33,29 @@ export class HeaderComponent implements OnInit {
   }
 
   
-  openBidProduct() {
+  openMyProfile() {
     var selectedData = {};
+    this.openDialogWithConfig(MyprofileComponent, selectedData, true, true);
+  }
+  changePassword (){
+    var selectedData = {};
+    this.openDialogWithConfig(ChangePasswordComponent, selectedData, false, false);
+  }
+  
+  openDialogWithConfig(dialogComponent, selectedData, isEdit, viewAtRight) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
-    dialogConfig.width = "60%";
-    dialogConfig.height = "100%";
-    dialogConfig.position = { top: '0', right: '0' },
-      dialogConfig.data = {
-        selectedData: selectedData
-      }
-
-    this.dialog.open(MyprofileComponent, dialogConfig);
+    if (viewAtRight) {
+      dialogConfig.width = "60%";
+      dialogConfig.height = "100%";
+      dialogConfig.position = { top: '0', right: '0' };
+    } else {
+      dialogConfig.width = "40%";
+    }
+    dialogConfig.data = {
+      selectedData: selectedData,
+      isEdit: isEdit
+    }
+    this.dialog.open(dialogComponent, dialogConfig);
   }
-
 }

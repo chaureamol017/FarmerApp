@@ -1,10 +1,12 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import {
   MatDialog, MatDialogConfig,
   MatTableDataSource, MatSort, MatPaginator
 } from '@angular/material';
 import { ProductComponent } from '../product/product.component';
 import { AddbidComponent } from '../bidproduct/addbid/addbid.component';
+import { UserDetails } from 'src/app/classes/user-details';
+import { BidlistComponent } from '../bidproduct/bidlist/bidlist.component';
 
 @Component({
   selector: 'app-product-list',
@@ -15,7 +17,8 @@ import { AddbidComponent } from '../bidproduct/addbid/addbid.component';
   ]
 })
 export class ProductListComponent implements OnInit {
-
+  @Input('loggedInUser') loggedInUser: UserDetails = new UserDetails();
+  userRole: any = "Buyer";
   listData: MatTableDataSource<any>;
   displayedColumns: string[] = ['productName', 'productCategory', 'grade', 'description', 'user', 'city', 'dateTobeAvailable', 'sellingRate', 'biddingRate', 'actions'];
   @ViewChild(MatSort, { static: false }) sort: MatSort;
@@ -29,9 +32,12 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.userRole = this.loggedInUser.role;
+
     var array = [{
       productName: "ABC",
-      productCategory: "Cat 1",
+      categoryid: "C1",
+      category: "Cat 1",
       gradeid: "G1",
       grade: "G 1",
       description: "Desc 1",
@@ -91,24 +97,32 @@ export class ProductListComponent implements OnInit {
 
     }
   }
+
+  viewBidProduct(selectedData, isEdit) {
+    this.openDialogWithConfig(BidlistComponent, selectedData, isEdit, true);
+  }
   addBidProduct(selectedData) {
-    this.openBidProduct(selectedData, false);
+    this.openDialogWithConfig(AddbidComponent, selectedData, false, false);
   }
-  
+
   editBidProduct(selectedData) {
-    this.openBidProduct(selectedData, true);
+    this.openDialogWithConfig(AddbidComponent, selectedData, true, false);
   }
-  
-  openBidProduct(selectedData, isEdit) {
+
+  openDialogWithConfig(dialogComponent, selectedData, isEdit, viewAtRight) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
-    dialogConfig.width = "40%";
-    // dialogConfig.height = "50%";
-      dialogConfig.data = {
-        selectedData: selectedData,
-        isEdit: isEdit
-      }
-
-    this.dialog.open(AddbidComponent, dialogConfig);
+    if (viewAtRight) {
+      dialogConfig.width = "60%";
+      dialogConfig.height = "100%";
+      dialogConfig.position = { top: '0', right: '0' };
+    } else {
+      dialogConfig.width = "40%";
+    }
+    dialogConfig.data = {
+      selectedData: selectedData,
+      isEdit: isEdit
+    }
+    this.dialog.open(dialogComponent, dialogConfig);
   }
 }

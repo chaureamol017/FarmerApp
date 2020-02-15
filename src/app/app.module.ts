@@ -11,6 +11,8 @@ import { HomeModule } from './home/home.module';
 import { ProductComponent } from './product/product/product.component';
 import { AddbidComponent } from './product/bidproduct/addbid/addbid.component';
 import { MyprofileComponent } from './dashboard/components/myprofile/myprofile.component';
+import { BidlistComponent } from './product/bidproduct/bidlist/bidlist.component';
+import { ChangePasswordComponent } from './dashboard/components/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -26,9 +28,11 @@ import { MyprofileComponent } from './dashboard/components/myprofile/myprofile.c
     ProductModule
   ],
   entryComponents: [
+    MyprofileComponent,
+    ChangePasswordComponent,
     ProductComponent,
     AddbidComponent,
-    MyprofileComponent,
+    BidlistComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
