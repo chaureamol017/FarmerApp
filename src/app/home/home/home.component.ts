@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  appName: any = "Krishi Business";
+
   constructor(
     // private dilog: MatDialog
   ) { }

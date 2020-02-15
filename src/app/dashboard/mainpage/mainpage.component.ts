@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainpageComponent implements OnInit {
   sideBarOpen = true;
+  sideBarIndex = 1;
 
   constructor() { }
 
@@ -15,6 +16,11 @@ export class MainpageComponent implements OnInit {
 
   sideBarToggler() {
     this.sideBarOpen = !this.sideBarOpen;
+  }
+
+  switchSideBarContent($event) {
+  // switchSideBarContent() {
+    this.sideBarIndex = $event;
   }
 
 }

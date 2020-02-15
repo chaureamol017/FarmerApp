@@ -1,8 +1,8 @@
 <div class="login-form" data-sidebar>
     <section class="container-fluid">
         <section class="row justify-content-center">
-            <section class="col-12 col-sm-6 col-md-3">
-                <div *ngIf="isSignIn">
+            <section class="col-12 col-sm-8 col-md-4">
+                <div *ngIf="!canCreateAccount">
                     <form class="form-container">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>
@@ -17,12 +17,12 @@
                                 placeholder="Password">
                         </div>
                         <button type="submit" class="btn btn-primary btn-block" routerLink="MyHome">Submit</button>
-                        Not member? <button type="button" class="mt-1" (click)="isSignIn = false;">Sign Up!!</button>
+                        Not member? <button type="button" class="mt-1" (click)="canCreateAccount = true;">Sign Up!!</button>
                     </form>
                 </div>
 
 
-                <div *ngIf="!isSignIn">
+                <div *ngIf="canCreateAccount">
                     <form class="form-container">
                         <div class="form-group">
                             <label class="form-label" for="exampleInputRegistrationFor">Registration For</label>
@@ -86,7 +86,7 @@
                                 placeholder="Password">
                         </div>
                         <button type="submit" class="btn btn-primary btn-block" routerLink="MyHome">Submit</button>
-                        already member? <button type="button" class="mt-1" (click)="isSignIn = true;">Sign In!!</button>
+                        Already member? <button type="button" class="mt-1" (click)="canCreateAccount = false;">Sign In!!</button>
                     </form>
                 </div>
             </section>

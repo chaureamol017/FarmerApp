@@ -1,0 +1,25 @@
+<mat-toolbar>
+    <h1 mat-dialog-title>{{formTitle}}</h1>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="closeDialog()" tabindex="-1">
+        <mat-icon>clear</mat-icon>
+    </button>
+</mat-toolbar>
+
+<mat-dialog-content class="mat-typography">
+
+
+    <form class="form-container">
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" class="form-control" id="firstName" formControlName="firstName"
+                aria-describedby="emailHelp" placeholder="Enter First Name">
+        </div>
+
+
+        <div class="add-bottom-button-container d-flex align-items-center mb-4">
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+
+    </form>
+</mat-dialog-content>

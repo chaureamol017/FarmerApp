@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 // import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatButtonModule, MatDividerModule, MatToolbarModule, MatIconModule, MatMenuModule, MatListModule, MatSidenavModule } from '@angular/material'
+import { MatButtonModule, MatDividerModule, MatToolbarModule, MatIconModule, MatMenuModule, MatListModule, MatSidenavModule, MatDialogModule } from '@angular/material'
 
 import { ProductModule } from '../product/product.module';
 import { MainpageComponent } from './mainpage/mainpage.component';
@@ -9,6 +9,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ActionsModule } from '../actions/actions.module';
+import { MyprofileComponent } from './components/myprofile/myprofile.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     FooterComponent,
     SidebarComponent,
     DashboardComponent,
+    MyprofileComponent,
   ],
   imports: [
     CommonModule,
@@ -25,6 +28,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
     MatButtonModule,
     MatDividerModule,
+    MatDialogModule,
     MatIconModule,
     MatListModule,
     MatMenuModule,
@@ -32,6 +36,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatToolbarModule,
 
     ProductModule,
+    ActionsModule
   ],
 
   exports: [
