@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MatDialogConfig, MatDialog } from '@angular/material';
-import { MyprofileComponent } from '../myprofile/myprofile.component';
 import { ChangePasswordComponent } from '../change-password/change-password.component';
+import { ProfileComponent } from '../../profile/profile.component';
 
 @Component({
   selector: 'app-header',
@@ -25,17 +25,12 @@ export class HeaderComponent implements OnInit {
 
   toggleSideBar() {
     this.toggleSideBarForMe.emit();
-    // setTimeout(() => {
-    //   window.dispatchEvent(
-    //     new Event('resize')
-    //   );
-    // }, 300);
   }
 
   
   openMyProfile() {
     var selectedData = {};
-    this.openDialogWithConfig(MyprofileComponent, selectedData, true, true);
+    this.openDialogWithConfig(ProfileComponent, selectedData, true, true);
   }
   changePassword (){
     var selectedData = {};

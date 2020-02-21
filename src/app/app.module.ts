@@ -10,9 +10,12 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { HomeModule } from './home/home.module';
 import { ProductComponent } from './product/product/product.component';
 import { AddbidComponent } from './product/bidproduct/addbid/addbid.component';
-import { MyprofileComponent } from './dashboard/components/myprofile/myprofile.component';
 import { BidlistComponent } from './product/bidproduct/bidlist/bidlist.component';
 import { ChangePasswordComponent } from './dashboard/components/change-password/change-password.component';
+import { UserService } from './services/user.service';
+import { HttpClientModule } from '@angular/common/http';
+import { AdminService } from './services/admin.service';
+import { ProfileComponent } from './dashboard/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -23,18 +26,23 @@ import { ChangePasswordComponent } from './dashboard/components/change-password/
     AppRoutingModule,
     BrowserAnimationsModule,
 
+    HttpClientModule ,
+    
     HomeModule,
     DashboardModule,
     ProductModule
   ],
   entryComponents: [
-    MyprofileComponent,
+    ProfileComponent,
     ChangePasswordComponent,
     ProductComponent,
     AddbidComponent,
     BidlistComponent,
   ],
-  providers: [],
+  providers: [
+    UserService,
+    AdminService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

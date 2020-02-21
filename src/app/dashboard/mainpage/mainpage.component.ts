@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserDetails } from 'src/app/classes/user-details';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-mainpage',
@@ -10,16 +11,22 @@ export class MainpageComponent implements OnInit {
   sideBarOpen = true;
   sideBarIndex = 0;
   loggedInUser: UserDetails;
-  constructor() {
+  constructor(
+    private activatedRoute: ActivatedRoute,
+  ) {
     
     this.loggedInUser = new UserDetails();
-    this.loggedInUser.name = "Sachin";
-    this.loggedInUser.emailId = "Sachn@mailinator.com";
-    this.loggedInUser.role = "Buyer";
-    // this.loggedInUser.role = "Farmer";
+    
+    this.loggedInUser.firstName = localStorage.getItem("firstName");
+    this.loggedInUser.middleName = localStorage.getItem("middleName");
+    this.loggedInUser.lastName = localStorage.getItem("lastName");
+    this.loggedInUser.emailId = localStorage.getItem("emailId");
+    this.loggedInUser.registrationFor = localStorage.getItem("registrationFor");
+    
   }
 
   ngOnInit() {
+    
   }
 
   sideBarToggler() {

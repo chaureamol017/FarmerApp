@@ -1,95 +1,17 @@
-<div [class.login-form]="!canCreateAccount" [class.signup-form]="canCreateAccount" data-sidebar>
-    <section class="container-fluid">
-        <section class="row justify-content-center">
-            <section class="col-12 col-sm-8 col-md-4">
-                <div *ngIf="!canCreateAccount">
-                    <form class="form-container">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" placeholder="Enter email">
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                                else.</small>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1"
-                                placeholder="Password">
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block" routerLink="MyHome">Submit</button>
-                        Not member? <button type="button" class="mt-1" (click)="canCreateAccount = true;">Sign Up!!</button>
-                    </form>
-                </div>
 
 
-                <div *ngIf="canCreateAccount">
-                    <form class="form-container">
-                        <div class="form-group">
-                            <label class="form-label" for="exampleInputRegistrationFor">Registration For</label>
-                            <select class="form-control" data-toggle="tooltip" data-placement="right"
-                                title="Select Registration For">
-                                <option value="null">-- Please Select --</option>
-                                <option value="Buyer">Buyer</option>
-                                <option value="Farmer">Farmer</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputFirstName">Name</label>
-                            <input type="text" class="form-control" id="exampleInputFirstName"
-                                placeholder="Enter First Name">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputName">Middle Name</label>
-                            <input type="text" class="form-control" id="exampleInputMiddleName"
-                                placeholder="Enter Middle Name">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputLastName">Last Name</label>
-                            <input type="text" class="form-control" id="exampleInputLastName"
-                                placeholder="Enter Last Name">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" placeholder="Enter email">
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                                else.</small>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputBankName">Bank Name</label>
-                            <input type="text" class="form-control" id="exampleInputBankName"
-                                placeholder="Enter Bank Name">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputBranchName">Branch Name</label>
-                            <input type="text" class="form-control" id="exampleInputBranchName"
-                                placeholder="Enter Branch Name">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputBranchName">IFSC Code</label>
-                            <input type="text" class="form-control" id="exampleInputIfscCode"
-                                placeholder="Enter IFSC Code">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputAddress">Address</label>
-                            <input type="text" class="form-control" id="exampleInputAddress"
-                                placeholder="Enter Address">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputAddress">Address</label>
-                            <input type="text" class="form-control" id="exampleInputAddress"
-                                placeholder="Enter Address">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1"
-                                placeholder="Password">
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block" routerLink="MyHome">Submit</button>
-                        Already member? <button type="button" class="mt-1" (click)="canCreateAccount = false;">Sign In!!</button>
-                    </form>
-                </div>
-            </section>
-        </section>
-    </section>
-</div>
+<form [formGroup]="loginForm" (ngSubmit)="validateLogin(loginForm)" >
+    <div class="form-group">
+        <label for="emailId">Email address</label>
+        <input type="email" class="form-control" id="emailId" formControlName="emailId" 
+            aria-describedby="emailHelp" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+            else.</small>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password"  formControlName="password"
+            placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-primary btn-block" >Submit</button>
+</form>

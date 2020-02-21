@@ -10,8 +10,12 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ActionsModule } from '../actions/actions.module';
-import { MyprofileComponent } from './components/myprofile/myprofile.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { UserDetailsComponent } from './profile/user-details/user-details.component';
+import { AddressDetailsComponent } from './profile/address-details/address-details.component';
+import { BankDetailsComponent } from './profile/bank-details/bank-details.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,14 +24,18 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
     FooterComponent,
     SidebarComponent,
     DashboardComponent,
-    MyprofileComponent,
     ChangePasswordComponent,
+    UserDetailsComponent,
+    AddressDetailsComponent,
+    BankDetailsComponent,
+    ProfileComponent,
   ],
   imports: [
     CommonModule,
 
-    // FlexLayoutModule,
-
+    FormsModule,
+    ReactiveFormsModule,
+    
     MatButtonModule,
     MatDividerModule,
     MatDialogModule,

@@ -17,9 +17,12 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
     this.activeLink = 0; 
-    // this.loggedInUserName = "Sachin";
-    this.loggedInUserName = this.loggedInUser.name;
-    this.loggedInUserEmail = "sachin@yopmail.com";
+    
+    var firstName = (this.loggedInUser.firstName? this.loggedInUser.firstName : "" );
+    var lastName = (this.loggedInUser.lastName? this.loggedInUser.lastName : "" );
+
+    this.loggedInUserName = firstName + " " + lastName;
+    this.loggedInUserEmail = (this.loggedInUser.emailId) ? this.loggedInUser.emailId : "";
   }
   
   switchSideBar(clickedLink) {

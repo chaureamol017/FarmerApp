@@ -32,7 +32,7 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userRole = this.loggedInUser.role;
+    this.userRole = this.loggedInUser.registrationFor;
 
     var array = [{
       productName: "ABC",
